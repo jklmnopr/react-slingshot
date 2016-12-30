@@ -61,16 +61,16 @@ class FuelSavingsForm extends React.Component {
                   name="milesDriven"
                   value={fuelSavings.milesDriven}
                 />
-              miles per
-              <select
-                name="milesDrivenTimeframe"
-                onChange={this.onTimeframeChange}
-                value={fuelSavings.milesDrivenTimeframe}
-              >
-                <option value="week">Week</option>
-                <option value="month">Month</option>
-                <option value="year">Year</option>
-              </select>
+                <span> miles per </span>
+                <select
+                  name="milesDrivenTimeframe"
+                  onChange={this.onTimeframeChange}
+                  value={fuelSavings.milesDrivenTimeframe}
+                >
+                  <option value="week">Week</option>
+                  <option value="month">Month</option>
+                  <option value="year">Year</option>
+                </select>
               </td>
             </tr>
             <tr>
@@ -84,7 +84,7 @@ class FuelSavingsForm extends React.Component {
 
         {fuelSavings.necessaryDataIsProvidedToCalculateSavings
           && <FuelSavingsResults savings={fuelSavings.savings} />}
-        <input type="submit" value="Save" onClick={this.save} />
+        <input className="btn btn-primary" type="submit" value="Save" onClick={this.save} />
       </div>
     );
   }
