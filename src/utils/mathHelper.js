@@ -9,13 +9,16 @@ class MathHelper {
     }
 
     const scrubbedNumber = numberToRound.toString().replace('$', '').replace(',', '');
-    return Math.round(scrubbedNumber * Math.pow(10, numberOfDecimalPlaces)) / Math.pow(10, numberOfDecimalPlaces);
+    return (
+      Math.round(scrubbedNumber * (10 ** numberOfDecimalPlaces)) / (10 ** numberOfDecimalPlaces)
+    );
   }
 
   static addArray(values) { // adds array of values passed.
-    const total = values.reduce((previousValue, currentValue) => {
-      return previousValue + parseInt(this.convertToPennies(currentValue), 10); // do math in pennies to assure accuracy.
-    }, 0);
+    // do math in pennies to assure accuracy.
+    const total = values.reduce((previousValue, currentValue) =>
+       previousValue + parseInt(this.convertToPennies(currentValue), 10)
+    , 0);
 
     return total / 100; // convert back into dollars
   }

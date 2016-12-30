@@ -1,6 +1,6 @@
 import React from 'react';
-import {shallow} from 'enzyme';
-import {expect} from 'chai';
+import { shallow } from 'enzyme';
+import { expect } from 'chai';
 import FuelSavingsResults from './FuelSavingsResults';
 
 describe('<FuelSavingsResults />', () => {
@@ -8,10 +8,10 @@ describe('<FuelSavingsResults />', () => {
     const savings = {
       monthly: '10',
       annual: '120',
-      threeYear: '360'
+      threeYear: '360',
     };
 
-    const wrapper = shallow(<FuelSavingsResults savings={savings}/>);
+    const wrapper = shallow(<FuelSavingsResults savings={savings} />);
     // console.log(wrapper.debug()); // View shallowly rendered component
     const actual = wrapper.find('.fuel-savings-label').text();
     const expected = 'Savings';
@@ -23,10 +23,10 @@ describe('<FuelSavingsResults />', () => {
     const savings = {
       monthly: '10',
       annual: '120',
-      threeYear: '360'
+      threeYear: '360',
     };
 
-    const wrapper = shallow(<FuelSavingsResults savings={savings}/>);
+    const wrapper = shallow(<FuelSavingsResults savings={savings} />);
 
     const actual = wrapper.find('.savings').length;
     const expected = 3;
@@ -38,10 +38,10 @@ describe('<FuelSavingsResults />', () => {
     const savings = {
       monthly: '-10',
       annual: '-120',
-      threeYear: '-360'
+      threeYear: '-360',
     };
 
-    const wrapper = shallow(<FuelSavingsResults savings={savings}/>);
+    const wrapper = shallow(<FuelSavingsResults savings={savings} />);
 
     const actual = wrapper.find('.fuel-savings-label').text();
     const expected = 'Loss';
@@ -53,10 +53,10 @@ describe('<FuelSavingsResults />', () => {
     const savings = {
       monthly: '-10',
       annual: '-120',
-      threeYear: '-360'
+      threeYear: '-360',
     };
 
-    const wrapper = shallow(<FuelSavingsResults savings={savings}/>);
+    const wrapper = shallow(<FuelSavingsResults savings={savings} />);
     const actual = wrapper.find('.loss').length;
     const expected = 3;
 

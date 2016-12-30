@@ -1,17 +1,23 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { BrowserRouter, Match, Miss } from 'react-router';
 
 import App from './components/App';
 import HomePage from './components/HomePage';
 import FuelSavingsPage from './containers/FuelSavingsPage'; // eslint-disable-line import/no-named-as-default
-import AboutPage from './components/AboutPage.js';
-import NotFoundPage from './components/NotFoundPage.js';
+import AboutPage from './components/AboutPage';
+import NotFoundPage from './components/NotFoundPage';
 
-export default (
-  <Route path="/" component={App}>
-    <IndexRoute component={HomePage}/>
-    <Route path="fuel-savings" component={FuelSavingsPage}/>
-    <Route path="about" component={AboutPage}/>
-    <Route path="*" component={NotFoundPage}/>
-  </Route>
+const Routes = () => (
+  <BrowserRouter>
+    <App>
+      <div>
+        <Match exactly pattern="/" component={HomePage} />
+        <Match exactly pattern="/fuel-savings" component={FuelSavingsPage} />
+        <Match exactly pattern="/about" component={AboutPage} />
+        <Miss component={NotFoundPage} />
+      </div>
+    </App>
+  </BrowserRouter>
 );
+
+export default Routes;

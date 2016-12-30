@@ -1,4 +1,4 @@
-import {expect} from 'chai';
+import { expect } from 'chai';
 import calculator from './fuelSavingsCalculator';
 
 describe('Fuel Savings Calculator', () => {
@@ -6,7 +6,7 @@ describe('Fuel Savings Calculator', () => {
     it('returns false when necessary data isn\'t provided', () => {
       // arrange
       const settings = {
-        newMpg: 20
+        newMpg: 20,
       };
 
       // assert
@@ -20,7 +20,7 @@ describe('Fuel Savings Calculator', () => {
         tradeMpg: 10,
         newPpg: 1.50,
         tradePpg: 1.50,
-        milesDriven: 100
+        milesDriven: 100,
       };
 
       // assert
@@ -72,7 +72,7 @@ describe('Fuel Savings Calculator', () => {
         newPpg: 3.75,
         newMpg: 38,
         milesDriven: 120,
-        milesDrivenTimeframe: 'week'
+        milesDrivenTimeframe: 'week',
       };
 
       // act
@@ -90,7 +90,7 @@ describe('Fuel Savings Calculator', () => {
         newPpg: 3.75,
         newMpg: 38,
         milesDriven: 550,
-        milesDrivenTimeframe: 'month'
+        milesDrivenTimeframe: 'month',
       };
 
       // act
@@ -108,7 +108,7 @@ describe('Fuel Savings Calculator', () => {
         newPpg: 3.75,
         newMpg: 18,
         milesDriven: 14550,
-        milesDrivenTimeframe: 'year'
+        milesDrivenTimeframe: 'year',
       };
 
       // act

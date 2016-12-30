@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-expressions */
 import React from 'react';
-import {shallow} from 'enzyme';
-import {expect} from 'chai';
+import { shallow } from 'enzyme';
+import { expect } from 'chai';
 import sinon from 'sinon';
 import FuelSavingsForm from './FuelSavingsForm';
 import FuelSavingsTextInput from './FuelSavingsTextInput';
@@ -23,8 +24,8 @@ describe('<FuelSavingsForm />', () => {
       savings: {
         monthly: 0,
         annual: 0,
-        threeYear: 0
-      }
+        threeYear: 0,
+      },
     };
 
     const wrapper = shallow(<FuelSavingsForm
@@ -63,8 +64,8 @@ describe('<FuelSavingsForm />', () => {
       savings: {
         monthly: 0,
         annual: 0,
-        threeYear: 0
-      }
+        threeYear: 0,
+      },
     };
 
     const wrapper = shallow(<FuelSavingsForm
@@ -97,8 +98,8 @@ describe('<FuelSavingsForm />', () => {
       savings: {
         monthly: 10,
         annual: 120,
-        threeYear: 360
-      }
+        threeYear: 360,
+      },
     };
 
     const wrapper = shallow(<FuelSavingsForm
@@ -106,7 +107,7 @@ describe('<FuelSavingsForm />', () => {
       calculateFuelSavings={calculateFuelSavings}
       fuelSavings={fuelSavings}
     />);
-    const expected = <FuelSavingsResults savings={fuelSavings.savings}/>;
+    const expected = <FuelSavingsResults savings={fuelSavings.savings} />;
 
     expect(wrapper.contains(expected)).to.be.true;
   });
@@ -127,8 +128,8 @@ describe('<FuelSavingsForm />', () => {
       savings: {
         monthly: 0,
         annual: 0,
-        threeYear: 0
-      }
+        threeYear: 0,
+      },
     };
 
     const wrapper = shallow(<FuelSavingsForm
@@ -136,7 +137,7 @@ describe('<FuelSavingsForm />', () => {
       calculateFuelSavings={calculateFuelSavings}
       fuelSavings={fuelSavings}
     />);
-    const expected = <FuelSavingsResults savings={fuelSavings.savings}/>;
+    const expected = <FuelSavingsResults savings={fuelSavings.savings} />;
 
     expect(wrapper.contains(expected)).to.be.false;
   });
@@ -157,8 +158,8 @@ describe('<FuelSavingsForm />', () => {
       savings: {
         monthly: 0,
         annual: 0,
-        threeYear: 0
-      }
+        threeYear: 0,
+      },
     };
 
     const wrapper = shallow(<FuelSavingsForm
@@ -188,8 +189,8 @@ describe('<FuelSavingsForm />', () => {
       savings: {
         monthly: 0,
         annual: 0,
-        threeYear: 0
-      }
+        threeYear: 0,
+      },
     };
 
     const wrapper = shallow(<FuelSavingsForm
@@ -219,8 +220,8 @@ describe('<FuelSavingsForm />', () => {
       savings: {
         monthly: 0,
         annual: 0,
-        threeYear: 0
-      }
+        threeYear: 0,
+      },
     };
 
     const wrapper = shallow(<FuelSavingsForm
@@ -250,8 +251,8 @@ describe('<FuelSavingsForm />', () => {
       savings: {
         monthly: 0,
         annual: 0,
-        threeYear: 0
-      }
+        threeYear: 0,
+      },
     };
 
     const wrapper = shallow(<FuelSavingsForm
@@ -261,7 +262,7 @@ describe('<FuelSavingsForm />', () => {
     />);
 
     expect(calculateFuelSavings.calledOnce).to.be.false;
-    wrapper.find('select').simulate('change', {target: {value: 'year'}});
+    wrapper.find('select').simulate('change', { target: { value: 'year' } });
     expect(calculateFuelSavings.calledOnce).to.be.true;
     expect(calculateFuelSavings.args[0][2]).to.equal('year');
   });

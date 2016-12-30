@@ -1,12 +1,12 @@
-import * as ActionTypes from '../constants/actionTypes';
-import * as ActionCreators from './fuelSavingsActions';
-
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import MockDate from 'mockdate';
 import chai, { expect } from 'chai';
 
-import {getFormattedDateTime} from '../utils/dateHelper';
+import * as ActionTypes from '../constants/actionTypes';
+import * as ActionCreators from './fuelSavingsActions';
+
+import { getFormattedDateTime } from '../utils/dateHelper';
 
 chai.use(sinonChai);
 
@@ -31,8 +31,8 @@ describe('Actions', () => {
     savings: {
       monthly: 0,
       annual: 0,
-      threeYear: 0
-    }
+      threeYear: 0,
+    },
   };
 
   it('should create an action to save fuel savings', () => {
@@ -40,7 +40,7 @@ describe('Actions', () => {
     const expected = {
       type: ActionTypes.SAVE_FUEL_SAVINGS,
       dateModified,
-      settings: appState
+      settings: appState,
     };
 
     // we expect this to return a function since it is a thunk
@@ -60,7 +60,7 @@ describe('Actions', () => {
       dateModified,
       settings: appState,
       fieldName,
-      value
+      value,
     };
 
     expect(actual).to.deep.equal(expected); // Notice use of deep because it's a nested object

@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
 const FuelSavingsTextInput = (props) => {
   const handleChange = (e) => {
@@ -11,7 +11,8 @@ const FuelSavingsTextInput = (props) => {
       type="text"
       placeholder={props.placeholder}
       value={props.value}
-      onChange={handleChange}/>
+      onChange={handleChange}
+    />
   );
 };
 
@@ -21,8 +22,8 @@ FuelSavingsTextInput.propTypes = {
   placeholder: PropTypes.string,
   value: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number
-  ])
+    PropTypes.number,
+  ]),
 };
 
 export default FuelSavingsTextInput;

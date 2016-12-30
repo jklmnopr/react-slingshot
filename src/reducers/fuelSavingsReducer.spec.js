@@ -1,53 +1,54 @@
 import { expect } from 'chai';
 import * as ActionTypes from '../constants/actionTypes';
 import reducer from './fuelSavingsReducer';
-import {getFormattedDateTime} from '../utils/dateHelper';
+import { getFormattedDateTime } from '../utils/dateHelper';
 
 describe('Reducers::FuelSavings', () => {
-  const getInitialState = () => {
-    return {
-      newMpg: '',
-      tradeMpg: '',
-      newPpg: '',
-      tradePpg: '',
-      milesDriven: '',
-      milesDrivenTimeframe: 'week',
-      displayResults: false,
-      dateModified: null,
-      necessaryDataIsProvidedToCalculateSavings: false,
-      savings: {
-        monthly: 0,
-        annual: 0,
-        threeYear: 0
-      }
-    };
-  };
+  const getInitialState = () =>
+     ({
+       newMpg: '',
+       tradeMpg: '',
+       newPpg: '',
+       tradePpg: '',
+       milesDriven: '',
+       milesDrivenTimeframe: 'week',
+       displayResults: false,
+       dateModified: null,
+       necessaryDataIsProvidedToCalculateSavings: false,
+       savings: {
+         monthly: 0,
+         annual: 0,
+         threeYear: 0,
+       },
+     })
+  ;
 
-  const getAppState = () => {
-    return {
-      newMpg: 20,
-      tradeMpg: 10,
-      newPpg: 1.50,
-      tradePpg: 1.50,
-      milesDriven: 100,
-      milesDrivenTimeframe: 'week',
-      displayResults: false,
-      dateModified: null,
-      necessaryDataIsProvidedToCalculateSavings: false,
-      savings: {
-        monthly: 0,
-        annual: 0,
-        threeYear: 0
-      }
-    };
-  };
+  const getAppState = () =>
+     ({
+       newMpg: 20,
+       tradeMpg: 10,
+       newPpg: 1.50,
+       tradePpg: 1.50,
+       milesDriven: 100,
+       milesDrivenTimeframe: 'week',
+       displayResults: false,
+       dateModified: null,
+       necessaryDataIsProvidedToCalculateSavings: false,
+       savings: {
+         monthly: 0,
+         annual: 0,
+         threeYear: 0,
+       },
+     })
+  ;
   const dateModified = getFormattedDateTime();
 
   it('should set initial state by default', () => {
     const action = { type: 'unknown' };
     const expected = getInitialState();
 
-    expect(reducer(undefined, action)).to.deep.equal(expected); // Notice use of deep because it's a nested object
+    expect(reducer(undefined, action)).to.deep.equal(expected);
+    // Notice use of deep because it's a nested object
     // expect(reducer(undefined, action)).to.equal(expected); // Fails. Not deeply equal
   });
 
