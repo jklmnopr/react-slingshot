@@ -28,7 +28,7 @@ describe('Math Helper', () => {
     });
 
     // it('returns null when passed null', () => {
-    // 	should.not.exist(MathHelper.addArray(null));
+    // should.not.exist(MathHelper.addArray(null));
     // });
 
     it('returns 6 when passed [2,4]', () => {

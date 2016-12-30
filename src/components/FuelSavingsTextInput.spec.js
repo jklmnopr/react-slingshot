@@ -1,6 +1,6 @@
 import React from 'react';
-import {shallow} from 'enzyme';
-import chai, {expect} from 'chai';
+import { shallow } from 'enzyme';
+import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import FuelSavingsTextInput from './FuelSavingsTextInput';
@@ -13,7 +13,7 @@ describe('<FuelSavingsTextInput />', () => {
       name: 'testName',
       onChange: sinon.spy(),
       placeholder: 'Type Here',
-      value: 100
+      value: 100,
     };
 
     const wrapper = shallow(<FuelSavingsTextInput {...props} />);
@@ -29,7 +29,7 @@ describe('<FuelSavingsTextInput />', () => {
       name: 'newMpg',
       onChange: sinon.spy(),
       placeholder: 'Type Here',
-      value: 100
+      value: 100,
     };
 
     const wrapper = shallow(<FuelSavingsTextInput {...props} />);
@@ -38,8 +38,9 @@ describe('<FuelSavingsTextInput />', () => {
     const expected = 'input';
 
     expect(actual).to.equal(expected);
+    // eslint-disable-next-line
     props.onChange.should.not.have.been.called;
-    wrapper.simulate('change', {target: {value: 101}});
+    wrapper.simulate('change', { target: { value: 101 } });
     expect(props.onChange).to.have.been.calledWith('newMpg', 101);
   });
 });

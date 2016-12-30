@@ -6,16 +6,16 @@ import NumberFormatter from './numberFormatter';
 // This declares a function with a private method.
 // The public function returns an object literal.
 // Could arguably be called FuelSavingCalculatorFactory.
-const fuelSavingsCalculator = function () {
+const fuelSavingsCalculator = function fuelSavingsCalculator() {
   // private
-  const calculateMonthlyCost = function (milesDrivenPerMonth, ppg, mpg) {
+  const calculateMonthlyCost = function calculateMonthlyCost(milesDrivenPerMonth, ppg, mpg) {
     const gallonsUsedPerMonth = milesDrivenPerMonth / mpg;
     return gallonsUsedPerMonth * ppg;
   };
 
   // public
   return {
-    calculateMilesDrivenPerMonth: function (milesDriven, milesDrivenTimeframe) {
+    calculateMilesDrivenPerMonth(milesDriven, milesDrivenTimeframe) {
       const monthsPerYear = 12;
       const weeksPerYear = 52;
 
@@ -31,21 +31,24 @@ const fuelSavingsCalculator = function () {
       }
     },
 
-    calculateSavingsPerMonth: function (settings) {
+    calculateSavingsPerMonth(settings) {
       if (!settings.milesDriven) {
         return 0;
       }
 
-      const milesDrivenPerMonth = this.calculateMilesDrivenPerMonth(settings.milesDriven, settings.milesDrivenTimeframe);
-      const tradeFuelCostPerMonth = calculateMonthlyCost(milesDrivenPerMonth, settings.tradePpg, settings.tradeMpg);
-      const newFuelCostPerMonth = calculateMonthlyCost(milesDrivenPerMonth, settings.newPpg, settings.newMpg);
+      const milesDrivenPerMonth =
+        this.calculateMilesDrivenPerMonth(settings.milesDriven, settings.milesDrivenTimeframe);
+      const tradeFuelCostPerMonth =
+        calculateMonthlyCost(milesDrivenPerMonth, settings.tradePpg, settings.tradeMpg);
+      const newFuelCostPerMonth =
+        calculateMonthlyCost(milesDrivenPerMonth, settings.newPpg, settings.newMpg);
       const savingsPerMonth = tradeFuelCostPerMonth - newFuelCostPerMonth;
 
       return mathHelper.roundNumber(savingsPerMonth, 2);
     },
 
 
-    necessaryDataIsProvidedToCalculateSavings: function (settings) {
+    necessaryDataIsProvidedToCalculateSavings(settings) {
       return settings.newMpg > 0
         && settings.tradeMpg > 0
         && settings.newPpg > 0
@@ -53,15 +56,15 @@ const fuelSavingsCalculator = function () {
         && settings.milesDriven > 0;
     },
 
-    calculateSavings: function (settings) {
+    calculateSavings(settings) {
       const monthlySavings = this.calculateSavingsPerMonth(settings);
 
       return {
         monthly: NumberFormatter.getCurrencyFormattedNumber(monthlySavings),
         annual: NumberFormatter.getCurrencyFormattedNumber(monthlySavings * 12),
-        threeYear: NumberFormatter.getCurrencyFormattedNumber(monthlySavings * 12 * 3)
+        threeYear: NumberFormatter.getCurrencyFormattedNumber(monthlySavings * 12 * 3),
       };
-    }
+    },
   };
 };
 

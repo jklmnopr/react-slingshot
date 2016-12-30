@@ -1,11 +1,11 @@
-import * as ActionTypes from '../constants/actionTypes';
-
 import MockDate from 'mockdate';
 import { expect } from 'chai';
 import { createStore } from 'redux';
 
+import * as ActionTypes from '../constants/actionTypes';
+
 import calculator from '../utils/fuelSavingsCalculator';
-import {getFormattedDateTime} from '../utils/dateHelper';
+import { getFormattedDateTime } from '../utils/dateHelper';
 import initialState from '../reducers/initialState';
 import rootReducer from '../reducers';
 
@@ -26,7 +26,7 @@ describe('Store', () => {
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'newPpg', value: 1.50 },
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'tradePpg', value: 1.50 },
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'milesDriven', value: 100 },
-      { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'milesDrivenTimeframe', value: 'month' }
+      { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'milesDrivenTimeframe', value: 'month' },
     ];
     actions.forEach(action => store.dispatch(action));
 
@@ -41,7 +41,7 @@ describe('Store', () => {
       displayResults: false,
       dateModified,
       necessaryDataIsProvidedToCalculateSavings: true,
-      savings: calculator().calculateSavings(store.getState().fuelSavings)
+      savings: calculator().calculateSavings(store.getState().fuelSavings),
     };
 
     expect(actual.fuelSavings).to.deep.equal(expected);
@@ -53,10 +53,11 @@ describe('Store', () => {
     const actions = [
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'newMpg', value: 20 },
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'tradeMpg', value: 10 },
+      // eslint-disable-next-line
       // { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'newPpg', value: 1.50 },
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'tradePpg', value: 1.50 },
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'milesDriven', value: 100 },
-      { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'milesDrivenTimeframe', value: 'month' }
+      { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'milesDrivenTimeframe', value: 'month' },
     ];
 
     actions.forEach(action => store.dispatch(action));
@@ -73,7 +74,7 @@ describe('Store', () => {
       displayResults: false,
       dateModified,
       necessaryDataIsProvidedToCalculateSavings: false,
-      savings: { annual: 0, monthly: 0, threeYear: 0 }
+      savings: { annual: 0, monthly: 0, threeYear: 0 },
     };
 
 
@@ -100,7 +101,7 @@ describe('Store', () => {
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'milesDrivenTimeframe', value: 'week' },
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'newMpg', value: 20 },
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'tradeMpg', value: 10 },
-      { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'newPpg', value: 1.50 }
+      { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'newPpg', value: 1.50 },
     ];
     actions.forEach(action => store.dispatch(action));
 
@@ -109,7 +110,7 @@ describe('Store', () => {
     const moreActions = [
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'tradePpg', value: 0 },
       { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'milesDriven', value: 100 },
-      { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'milesDrivenTimeframe', value: 'year' }
+      { type: ActionTypes.CALCULATE_FUEL_SAVINGS, dateModified, settings: store.getState(), fieldName: 'milesDrivenTimeframe', value: 'year' },
     ];
 
     // actions.push(...moreActions);
@@ -126,7 +127,7 @@ describe('Store', () => {
       displayResults: false,
       dateModified,
       necessaryDataIsProvidedToCalculateSavings: false,
-      savings: lastGoodSavings
+      savings: lastGoodSavings,
     };
 
     expect(actual.fuelSavings).to.deep.equal(expected);
