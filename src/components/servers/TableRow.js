@@ -1,29 +1,33 @@
 import React, { PropTypes } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, ProgressBar } from 'react-bootstrap';
 
-const TableRow = ({ data }) => (
-  <Row>
-    <Col xs={3}>{data.name}</Col>
-    <Col xs={3}>{data.domain}</Col>
-    {/* TODO: make a component for progress bar */}
-    <Col xs={2}>{data.load}</Col>
-    <Col xs={4}>
+const TableRow = ({ name, domain, load, feature }) => (
+  <Row className="table-row space-xs-1">
+    <Col xs={3}>{name}</Col>
+    <Col xs={2}>{domain}</Col>
+    <Col xs={2}>
+      <ProgressBar now={load} label={`${load}%`} />
+    </Col>
+    <Col xs={5}>
       <Row>
-        {/* TODO: fix this */}
-        <Col xs={2}>{'✅'}</Col>
-        <Col xs={2}>✅</Col>
-        <Col xs={2}>{data.features.openvpn_tcp ? '✅' : ''}</Col>
-        <Col xs={2}>{data.features.openvpn_udp ? '✅' : ''}</Col>
-        <Col xs={2}>🎄</Col>
-        <Col xs={2}>🍪</Col>
+        {Object.keys(feature).map(v => (
+          <Col key={v} xs={2}>
+            {feature[v]
+              ? <span className="icon-server-feature-tick icon-server_status_tick" />
+              : ''
+            }
+          </Col>
+        ))}
       </Row>
     </Col>
   </Row>
 );
 
 TableRow.propTypes = {
-  // eslint-disable-next-line
-  data: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  domain: PropTypes.string.isRequired,
+  load: PropTypes.number.isRequired,
+  feature: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 export default TableRow;

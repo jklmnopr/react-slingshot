@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const HeaderText = ({ servers, countries, pricingLink }) => (
-  <div className="container">
+  <div>
     <h1>NordVPN Server Locations</h1>
     <h2>{servers} Servers in {countries} Countries</h2>
     <p className="lead">Welcome to the world’s most advanced VPN:</p>
@@ -10,9 +10,7 @@ const HeaderText = ({ servers, countries, pricingLink }) => (
       <p>2. Choose a nearby location.</p>
       <p>3. Double-click on a server via our custom app and you’re all set!</p>
     </ul>
-    <p>Not a NordVPN subscriber?
-      <a href={pricingLink}>Get started here</a>
-    </p>
+    <p>Not a NordVPN subscriber? <a href={pricingLink}>Get started here</a></p>
     <hr />
   </div>
 );

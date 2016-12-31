@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 
-const TableButton = ({ onClick, children }) => (
+const TableButton = ({ action, onClick, children }) => (
   <button
-    className="btn btn-brand btn-interactive btn-primary"
+    className={`btn btn-brand btn-interactive btn-sm ${action ? 'btn-action' : 'btn-primary'}`}
     onClick={onClick}
   >
     {children}
@@ -10,6 +10,7 @@ const TableButton = ({ onClick, children }) => (
 );
 
 TableButton.propTypes = {
+  action: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
 };

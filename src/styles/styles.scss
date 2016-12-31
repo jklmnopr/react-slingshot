@@ -8,8 +8,6 @@ body {
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.4em;
   color: #4d4d4d;
-  min-width: 230px;
-  max-width: 550px;
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
@@ -29,3 +27,37 @@ h2 {
 .loss { color: $vin-red; }
 input.small { width: 46px; }
 td.fuel-savings-label { width: 175px; }
+
+.icon-server-feature-tick {
+  width: 25px;
+  height: 24px;
+  margin: 0 auto;
+  float: none;
+  display: inline-block;
+  background-position: 0 -703px;
+  background-image: url('https://nordvpn.com/wp-content/themes/nordvpn-bootstrap/build/1483008742/images/sprite-flags-serverlist.png');
+}
+
+.table-row {
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
+}
+
+.table-row-flex {
+  @extend .table-row;
+  display: flex;
+  align-items: center;
+}
+
+.table-header {
+  @extend .table-row;
+  font-weight: bold;
+}
+
+.loading-screen {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22rem;
+}
