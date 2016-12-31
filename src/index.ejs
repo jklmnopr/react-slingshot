@@ -11,7 +11,9 @@
     To track JavaScript errors via TrackJS, sign up for a free trial at TrackJS.com and enter your token in /webpack.config.prod.js on line 55.
    -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
-  
+  <link rel="stylesheet" href="https://s1.nordcdn.com/nordvpn/2.0.0-beta2/css/critical.css">
+  <link rel="stylesheet" href="https://s1.nordcdn.com/nordvpn/2.0.0-beta2/css/base.css">
+
   <% if (htmlWebpackPlugin.options.trackJSToken) { %>
   <script>window._trackJs = {token: '<%= htmlWebpackPlugin.options.trackJSToken %>'};</script>
   <script src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js"></script>
