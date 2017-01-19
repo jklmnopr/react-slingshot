@@ -10,12 +10,10 @@ import NotFoundPage from './components/NotFoundPage';
 const Routes = () => (
   <BrowserRouter>
     <App>
-      <div>
-        <Match exactly pattern="/" component={HomePage} />
-        <Match exactly pattern="/fuel-savings" component={FuelSavingsPage} />
-        <Match exactly pattern="/about" component={AboutPage} />
-        <Miss component={NotFoundPage} />
-      </div>
+      <Match exactly pattern="/" component={HomePage} />
+      <Match exactly pattern="/fuel-savings" component={FuelSavingsPage} />
+      <Match exactly pattern="/about" component={AboutPage} />
+      <Miss component={NotFoundPage} />
     </App>
   </BrowserRouter>
 );
